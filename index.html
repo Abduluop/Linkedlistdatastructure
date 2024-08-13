@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>LINKED LIST</h1>
+
+<script>
+    class list{
+        constructor(data)
+        {
+          this.head = {
+            value: data,
+            next: null,
+
+          }
+
+          this.tail = this.head;
+          this.size = 0;
+          
+
+        }
+
+       insert (val)
+        {
+           let newnode = {
+            value : val,
+            next : null,
+           }
+
+           this.tail.next = newnode;
+           this.tail = newnode;
+           this.size++;
+        }
+
+        traverse()
+        {
+            let counter = 0;
+            let currentindex = this.head;
+            return currentindex;
+            counter++;
+            while(counter < this.size)
+        {
+            currentindex = currentindex.next;
+            return currentindex;
+          
+        }
+
+    }
+    
+    delete(index)
+    {
+      if(index == 1)
+      {
+        let leet = this.head.next;
+        this.head = leet
+      }
+      else
+      {
+        let lead = this.head;
+        let count = 1;
+        while(count < index-1)
+      {
+        lead = lead.next;
+        count++;
+      }
+      let next_node = lead.next.next;
+      lead.next = next_node
+     
+      }
+       
+    }
+
+   update(index, val)
+   {
+    let counter = 1;
+    let current = this.head;
+     
+    if(index == 1)
+   {
+    let leat  = this.head;
+    leat.value = value;
+   }
+   else{
+    while(counter < index -1)
+   {
+      current = current.next;
+      counter++;
+   }
+   let temp = current.next.next;
+   let newnode = {
+    value: val,
+    next: temp
+   }
+
+   current.next = newnode;
+
+   }
+   }
+    
+   insertonanyindex(index, val)
+   {
+     
+    let counter = 1;
+    let currentindex = this.head;
+    
+    if(index == 1)
+    {
+        let leadnode = this.head;
+        let tempnode = leadnode.next;
+        let newnode = {
+            value: val,
+            Next: tempnode
+        }
+        this.head = newnode;
+    }
+    else{
+        while(counter < index-1)
+    {
+        currentindex = currentindex.next;
+        counter++;
+    }
+    let temporarynode = currentindex.next;
+    let newinsertion = {
+        value: val,
+        next: temporarynode
+    }
+    currentindex.next = newinsertion;
+    }
+
+   }
+
+    }
+    const obj = new list(18);
+    obj.insert(19);
+    obj.insert(20);
+    obj.insert(30);
+    obj.insert(40);
+    obj.insertonanyindex(3,24);
+    // obj.update(3, 22);
+    // obj.delete(3);
+    console.log(obj.traverse());
+
+   
+   
+    
+    
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script>
+   
+   class Queue {
+    constructor(size){
+        this.max = size;
+        this.rear = -1;
+        this.front = -1;
+        this.currentindex = 0;
+        this.items = new Array(size)
+    }
+
+    enq(val)
+    {
+        if(this.currentindex!== this.max)
+    {
+        if(this.rear == this.max-1)
+    {
+        this.rear = 0;
+    }
+    else{
+        this.rear++;
+
+    }
+
+    this.items[this.rear] = val;
+    this.currentindex++;
+
+    if(this.front == -1)
+   {
+       this.front = 0;
+   }
+    }
+    else
+    {
+        alert("full")
+    }
+    return this.items;
+    }
+
+    deq()
+    {
+       if(this.currentindex != 0)
+       {
+        this.items[this.front] = null;
+        this.currentindex--;
+        if(this.front == this.max-1)
+       {
+        this.front = 0;
+       }
+       else{
+        this.front++;
+       }
+       
+       }
+
+       else{
+        alert("array is empty")
+       }   
+    }
+          
+   }
+    
+   const obj = new Queue(5);
+
+    </script> -->
+
+</body>
+</html>
